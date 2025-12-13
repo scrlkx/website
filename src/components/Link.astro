@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { clsx } from "clsx";
+
+interface Props extends HTMLAttributes<"a"> {}
+
+const { href, class: className } = Astro.props;
+const target = Astro.props.target ?? "_self";
+const rel = target === "_blank" ? "nopener noreferrer" : "";
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel}
+  class={clsx("hover:opacity-60 active:opacity-80", className)}><slot /></a
+>

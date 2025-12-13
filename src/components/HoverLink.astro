@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import clsx from "clsx";
+
+interface Props extends HTMLAttributes<"a"> {}
+
+const { href, class: className } = Astro.props;
+const target = Astro.props.target ?? "_self";
+const rel = target === "_blank" ? "nopener noreferrer" : "";
+---
+
+<p class="group relative w-max">
+  <a href={href} rel={rel} class={clsx("px-1 relative z-10", className)}>
+    <slot />
+  </a>
+  <span
+    class="bg-secundary absolute bottom-0 left-0 z-0 h-0.5 w-full transition-all group-hover:h-full"
+  ></span>
+</p>

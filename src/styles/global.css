@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+:root {
+  --color-background: oklch(99.11% 0 21.56);
+  --color-foreground: oklch(48.99% 0.01 248.08);
+  --color-primary: oklch(70.79% 0.18 125.62);
+  --color-secundary: oklch(74.83% 0.16 53.03);
+  --color-tertiary: oklch(65.16% 0.13 306.23);
+
+  --color-brand-github: oklch(25.42% 0.01 254.06);
+  --color-brand-gitlab: oklch(70.17% 0.19 42.95);
+  --color-brand-linkedin: oklch(51.56% 0.16 254.74);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: oklch(17.33% 0.02 266.7);
+    --color-foreground: oklch(79.8% 0.01 93.48);
+    --color-primary: oklch(82.51% 0.17 125.83);
+    --color-secundary: oklch(75.82% 0.16 52.41);
+    --color-tertiary: oklch(79.7% 0.13 306.34);
+
+    --color-brand-github: oklch(81.21% 0.01 258.42);
+  }
+}
+
+@theme {
+  --color-current: currentColor;
+
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-primary: var(--color-primary);
+  --color-secundary: var(--color-secundary);
+  --color-tertiary: var(--color-tertiary);
+
+  --color-brand-github: var(--color-brand-github);
+  --color-brand-gitlab: var(--color-brand-gitlab);
+  --color-brand-linkedin: var(--color-brand-linkedin);
+}

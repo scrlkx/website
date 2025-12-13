@@ -1,0 +1,126 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import "../styles/global.css";
+
+import Link from "../components/Link.astro";
+import profile from "../images/profile.jpeg";
+import HoverLink from "../components/HoverLink.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Daniel Freitas / @scrlkx</title>
+  </head>
+  <body
+    class="bg-background text-foreground flex h-svh w-svw flex-col items-center p-8"
+  >
+    <main
+      class="mx-auto flex h-full max-w-3xl flex-col items-center justify-center space-y-8 lg:space-y-10"
+    >
+      <div
+        class="ring-primary ring-offset-background mx-auto overflow-hidden rounded-full ring-2 ring-offset-4"
+      >
+        <Image src={profile} alt="Profile Picture" class="w-20 lg:w-48" />
+      </div>
+
+      <div class="space-y-2 text-center lg:space-y-6">
+        <h1 class="text-secundary text-2xl font-semibold lg:text-3xl">
+          Hello!
+        </h1>
+        <div class="space-y-2 lg:space-y-4">
+          <h2 class="text-lg">
+            I'm
+            <span class="text-primary font-semibold">Daniel Freitas</span>,
+            <br class="block lg:hidden" />
+            digitally known as
+            <span class="text-primary font-semibold">scrlkx</span>.
+          </h2>
+          <h3>
+            This is my corner of the internet — where I dive into coding, Linux
+            and all the nerdy things that keep me curious. I work building web
+            applications, automating workflows and experimenting with tech that
+            makes life (and work) simpler.
+          </h3>
+        </div>
+      </div>
+
+      <div class="flex flex-row items-center space-x-6 lg:space-x-8">
+        <Link
+          href="https://github.com/scrlkx"
+          target="_blank"
+          class="text-brand-github!"
+        >
+          <Icon name="simple-icons:github" class="size-8 lg:size-10" />
+        </Link>
+        <Link
+          href="https://gitlab.com/scrlkx"
+          target="_blank"
+          class="text-brand-gitlab!"
+        >
+          <Icon name="simple-icons:gitlab" class="size-8 lg:size-10" />
+        </Link>
+        <Link
+          href="https://linkedin.com/in/scrlkx"
+          target="_blank"
+          class="text-brand-linkedin!"
+        >
+          <Icon name="simple-icons:linkedin" class="size-8 lg:size-10" />
+        </Link>
+      </div>
+
+      <div class="flex flex-row items-center justify-center space-x-1 text-lg">
+        <span>Get in touch at</span>
+        <HoverLink
+          href="mailto:me@scrlkx.com"
+          target="_blank"
+          class="group-hover:text-white"
+        >
+          me@scrlkx.com
+        </HoverLink>
+      </div>
+    </main>
+
+    <footer
+      class="text-foreground space-y-2 pt-4 text-center text-sm lg:space-y-1 lg:pt-0"
+    >
+      <p>
+        Powered by
+        <Link href="https://astro.build" target="_blank" class="text-tertiary"
+          >Astro</Link
+        >,
+        <Link
+          href="https://tailwindcss.com"
+          target="_blank"
+          class="text-tertiary">Tailwind CSS</Link
+        >,
+        <br class="block lg:hidden" />
+        <Link href="https://github.com" target="_blank" class="text-tertiary"
+          >GitHub</Link
+        >
+        and
+        <Link href="https://vercel.com" target="_blank" class="text-tertiary">
+          Vercel
+        </Link>
+      </p>
+      <p>
+        Source code available at
+        <Link
+          href="https://github.com/scrlkx/website"
+          rel="_blank"
+          class="text-tertiary"
+        >
+          github.com/scrlkx/website
+        </Link>
+      </p>
+    </footer>
+  </body>
+</html>
