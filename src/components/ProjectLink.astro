@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+import { type Project } from "../types/project";
+
+interface Props extends Project {}
+
+const { name, description, repository } = Astro.props;
+---
+
+<a
+  href={repository}
+  target="_blank"
+  rel="nopener noreferrer"
+  class="group border-foreground/10 hover:border-foreground/50 relative space-y-1 rounded-lg border-2 px-4 py-3 transition-all duration-500"
+>
+  <p class="font-semibold">{name}</p>
+  <p class="text-sm">{description}</p>
+  <Icon
+    name="heroicons:arrow-up-right-20-solid"
+    class="text-foreground/50 group-hover:text-foreground absolute top-3 right-3 size-5 transition-all duration-500"
+  />
+</a>

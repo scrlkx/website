@@ -11,6 +11,7 @@
     "format": "prettier . --check"
   },
   "dependencies": {
+    "@iconify-json/heroicons": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.61",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.16.3",

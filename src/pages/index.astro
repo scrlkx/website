@@ -7,6 +7,23 @@ import "../styles/global.css";
 import Link from "../components/Link.astro";
 import profile from "../images/profile.jpeg";
 import HoverLink from "../components/HoverLink.astro";
+import ProjectLink from "../components/ProjectLink.astro";
+import type { Project } from "../types/project";
+
+const openSource: Project[] = [
+  {
+    name: "dockery",
+    description:
+      "GTK/Libadwaita UI for managing Docker containers on the best GNOME-style.",
+    repository: "https://github.com/scrlkx/dockery",
+  },
+  {
+    name: "dotenv-seeder",
+    description:
+      "A Github Action for seeding environment variables into a env file using JSON input.",
+    repository: "https://github.com/scrlkx/dotenv-seeder",
+  },
+];
 ---
 
 <html lang="en">
@@ -21,22 +38,26 @@ import HoverLink from "../components/HoverLink.astro";
     <title>Daniel Freitas / @scrlkx</title>
   </head>
   <body
-    class="bg-background text-foreground flex h-svh w-svw flex-col items-center p-8"
+    class="bg-background text-foreground flex min-h-svh w-svw flex-col items-center p-8 lg:grid lg:place-items-center"
   >
     <main
-      class="mx-auto flex h-full max-w-3xl flex-col items-center justify-center space-y-8 lg:space-y-10"
+      class="mx-auto flex h-full max-w-2xl flex-col items-center justify-center space-y-8 2xl:space-y-10"
     >
       <div
         class="ring-primary ring-offset-background mx-auto overflow-hidden rounded-full ring-2 ring-offset-4"
       >
-        <Image src={profile} alt="Profile Picture" class="w-20 lg:w-48" />
+        <Image
+          src={profile}
+          alt="Profile Picture"
+          class="size-28 2xl:size-36"
+        />
       </div>
 
-      <div class="space-y-2 text-center lg:space-y-6">
-        <h1 class="text-secundary text-2xl font-semibold lg:text-3xl">
+      <div class="space-y-2 text-center 2xl:space-y-6">
+        <h1 class="text-secundary text-2xl font-semibold lg:text-2xl">
           Hello!
         </h1>
-        <div class="space-y-2 lg:space-y-4">
+        <div class="space-y-2 2xl:space-y-4">
           <h2 class="text-lg">
             I'm
             <span class="text-primary font-semibold">Daniel Freitas</span>,
@@ -53,27 +74,27 @@ import HoverLink from "../components/HoverLink.astro";
         </div>
       </div>
 
-      <div class="flex flex-row items-center space-x-6 lg:space-x-8">
+      <div class="flex flex-row items-center space-x-6 2xl:space-x-8">
         <Link
           href="https://github.com/scrlkx"
           target="_blank"
           class="text-brand-github!"
         >
-          <Icon name="simple-icons:github" class="size-8 lg:size-10" />
+          <Icon name="simple-icons:github" class="size-8 2xl:size-10" />
         </Link>
         <Link
           href="https://gitlab.com/scrlkx"
           target="_blank"
           class="text-brand-gitlab!"
         >
-          <Icon name="simple-icons:gitlab" class="size-8 lg:size-10" />
+          <Icon name="simple-icons:gitlab" class="size-8 2xl:size-10" />
         </Link>
         <Link
           href="https://linkedin.com/in/scrlkx"
           target="_blank"
           class="text-brand-linkedin!"
         >
-          <Icon name="simple-icons:linkedin" class="size-8 lg:size-10" />
+          <Icon name="simple-icons:linkedin" class="size-8 2xl:size-10" />
         </Link>
       </div>
 
@@ -87,10 +108,17 @@ import HoverLink from "../components/HoverLink.astro";
           me@scrlkx.com
         </HoverLink>
       </div>
+
+      <div class="space-y-4">
+        <h4 class="text-center text-lg font-medium">Open source</h4>
+        <div class="flex flex-col gap-4 sm:flex-row">
+          {openSource.map((project) => <ProjectLink {...project} />)}
+        </div>
+      </div>
     </main>
 
     <footer
-      class="text-foreground space-y-2 pt-4 text-center text-sm lg:space-y-1 lg:pt-0"
+      class="text-foreground space-y-2 pt-8 text-center text-sm lg:space-y-1 lg:pt-0"
     >
       <p>
         Powered by
@@ -115,7 +143,7 @@ import HoverLink from "../components/HoverLink.astro";
         Source code available at
         <Link
           href="https://github.com/scrlkx/website"
-          rel="_blank"
+          target="_blank"
           class="text-tertiary"
         >
           github.com/scrlkx/website
